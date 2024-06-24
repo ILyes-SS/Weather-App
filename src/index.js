@@ -148,7 +148,7 @@ function displayInfos(neededData) {
 async function fetchData(loc) {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=e65282bfa1514e07927143126241906&q=${loc}&days=3&aqi=no&alerts=no`
+      `https://api.weatherapi.com/v1/forecast.json?key=e65282bfa1514e07927143126241906&q=${loc}&days=3&aqi=no&alerts=no`
     );
     if (!response.ok) throw new Error("oops");
     const data = await response.json();
