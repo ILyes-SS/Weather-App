@@ -10,15 +10,16 @@ function changeBgClrBasedOnTime(data) {
   const time2 = data.sunset;
   const sunrise = parse(time1, "h:mm a", new Date());
   const sunset = parse(time2, "h:mm a", new Date());
-  const now = format(new Date(), "h:mm a");
+  const now = new Date();
 
   const differenceInMinutesSunset = Math.abs(differenceInMinutes(now, sunset));
   const differenceInMinutesSunrise = differenceInMinutes(now, sunrise);
-  if (differenceInMinutesSunset <= 20) {
+
+  if (differenceInMinutesSunset <= 20 || differenceInMinutesSunset >= 1420) {
     body.style.backgroundColor = "orange";
   } else if (
-    differenceInMinutes(now, addMinutes(sunset, 20)) >= 0 &&
-    differenceInMinutesSunrise <= 0
+    differenceInMinutes(now, addMinutes(sunset, 20)) <= 545 &&
+    differenceInMinutesSunrise >= 894
   ) {
     body.style.backgroundColor = "black";
   } else {
