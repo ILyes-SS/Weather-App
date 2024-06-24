@@ -1,10 +1,18 @@
 function takeLocation() {
-  let location = prompt("where do you live", "mostaganem");
-  return location;
+  const inpLocation = document.querySelector("input");
+  const dialog = document.querySelector("dialog");
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let loc = inpLocation.value || "mostaganem";
+    fetchData(loc);
+    dialog.close();
+  });
 }
 function extractRequiredData(data) {
   const neededData = {
-    location: data["location"]["region"],
+    location: data["location"]["name"],
     celsius: data["current"]["temp_c"],
     fahrenheit: data["current"]["temp_f"],
     weather: data["current"]["condition"]["text"],
@@ -41,10 +49,10 @@ function extractRequiredData(data) {
   };
   return neededData;
 }
-async function fetchData() {
+async function fetchData(loc) {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=e65282bfa1514e07927143126241906&q=${takeLocation()}&days=3&aqi=no&alerts=no`
+      `http://api.weatherapi.com/v1/forecast.json?key=e65282bfa1514e07927143126241906&q=${loc}&days=3&aqi=no&alerts=no`
     );
     if (!response.ok) throw new Error("oops");
     const data = await response.json();
@@ -53,4 +61,4 @@ async function fetchData() {
     console.error(err);
   }
 }
-fetchData();
+takeLocation();
