@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head><script defer src="main.js"></script></head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    
+  <body>
+    <dialog open>
+      <form method="dialog">
+        <label for="location">Your location:</label>
+        <input
+          type="text"
+          name="location"
+          id="location"
+          placeholder="e.g: london"
+        />
+        <button type="submit">Confirm</button>
+      </form>
+    </dialog>
+    <div class="top">
+      <div class="location">
+        <h1 class="city"></h1>
+        <img src="" alt="location icon" id="locationIcon" />
+      </div>
+      <div class="climate">
+        <div class="temp"></div>
+        <div class="sky"></div>
+      </div>
+    </div>
+    <button class="celsius">°F</button>
+    <img src="" alt="today climate icon" id="climate" />
+    <div class="humid-wind">
+      <div class="humidity">
+        <img src="" alt="humidity icon" id="humidity" />
+        <div class="percentage-description"></div>
+      </div>
+      <div class="wind">
+        <img src="" alt="wind icon" id="wind" />
+        <div class="speed-description"></div>
+      </div>
+    </div>
+    <div class="forecast">
+      <div class="today">
+        <img src="" alt="today climate icon" id="today" />
+        <p>Today</p>
+        <div class="td-min-max"></div>
+      </div>
+      <div class="tomorrow">
+        <img src="" alt="tomorrow climate icon" id="tomorrow" />
+        <p>Tomorrow</p>
+        <div class="tm-min-max"></div>
+      </div>
+      <div class="after-tomorrow">
+        <img src="" alt="after-tomrw climate icon" id="after-tomorrow" />
+        <p>after-tmrw</p>
+        <div class="af-min-max"></div>
+      </div>
+    </div>
+  </body>
+</html>
